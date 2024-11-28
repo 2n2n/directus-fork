@@ -906,6 +906,7 @@ fields:
     external_identifier: External Identifier
     last_page: Last Page
     last_access: Last Access
+    user_id: User Id
   directus_settings:
     jpg: JPEG
     png: PNG

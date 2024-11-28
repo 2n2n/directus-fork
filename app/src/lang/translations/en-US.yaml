@@ -1366,6 +1366,7 @@ fields:
     theme_dark: Theme Dark
     theme_light_overrides: Light Theme Customization
     theme_dark_overrides: Dark Theme Customization
+    user_id: User Id
   directus_settings:
     jpg: JPEG
     png: PNG

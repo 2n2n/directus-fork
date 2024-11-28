@@ -89,3 +89,7 @@ properties:
     example: /my-project/settings/collections/a
     type: string
     nullable: true
+  user_id:
+    description: User Id of the user.
+    example: '1'
+    type: number
