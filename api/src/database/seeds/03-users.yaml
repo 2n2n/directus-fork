@@ -62,5 +62,5 @@ columns:
     type: string
     length: 255
   user_id:
-    type: integer
-    nullable: false
+    type: string
+    length: 255

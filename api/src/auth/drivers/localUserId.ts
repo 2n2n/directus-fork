@@ -17,14 +17,15 @@ import { AuthDriver } from '../auth.js';
 
 export class LocalUserIdDriver extends AuthDriver {
 	async getUserID(payload: Record<string, any>): Promise<string> {
-		if (!payload['user_id']) {
+		
+		if (!payload['email']) {
 			throw new InvalidCredentialsError();
 		}
 
 		const user = await this.knex
 			.select('id')
 			.from('directus_users')
-			.whereRaw('LOWER(??) = ?', ['user_id', payload['user_id'].toLowerCase()])
+			.whereRaw('LOWER(??) = ?', ['user_id', payload['email'].toLowerCase()])
 			.first();
 
 		if (!user) {
@@ -34,24 +35,24 @@ export class LocalUserIdDriver extends AuthDriver {
 		return user.id;
 	}
 
-	async verify(user: Pick<User, 'user_id' | 'password'>, password?: string): Promise<void> {
+	async verify(user: Pick<User, 'email' | 'password'>, password?: string): Promise<void> {
 		if (!user.password || !(await argon2.verify(user.password, password as string))) {
 			throw new InvalidCredentialsError();
 		}
 	}
 
-	override async login(user: Pick<User, 'user_id' | 'password'>, payload: Record<string, any>): Promise<void> {
+	override async login(user: Pick<User, 'email' | 'password'>, payload: Record<string, any>): Promise<void> {
 		await this.verify(user, payload['password']);
 	}
 }
 
-export function createLocalAuthRouter(provider: string): Router {
+export function createCustomLocalAuthRouter(provider: string): Router {
 	const env = useEnv();
 
 	const router = Router();
 
 	const userLoginSchema = Joi.object({
-		user_id: Joi.number().required(),
+		email: Joi.string().required(),
 		password: Joi.string().required(),
 		mode: Joi.string().valid('cookie', 'json', 'session'),
 		otp: Joi.string(),

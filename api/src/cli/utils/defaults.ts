@@ -10,7 +10,7 @@ export const defaultAdminUser: Partial<User> = {
 	status: 'active',
 	first_name: 'Admin',
 	last_name: 'User',
-	user_id: 1,
+	user_id: '1',
 };
 
 export const defaultAdminPolicy: Partial<Policy> = {

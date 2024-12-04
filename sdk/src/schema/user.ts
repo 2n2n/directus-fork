@@ -38,6 +38,6 @@ export type DirectusUser<Schema = any> = MergeCoreCollection<
 		theme_light_overrides: Record<string, unknown> | null;
 		theme_dark_overrides: Record<string, unknown> | null;
 		policies: string[] | DirectusPolicy<Schema>[];
-		user_id: number | null;
+		user_id: string | null;
 	}
 >;
