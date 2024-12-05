@@ -19,6 +19,7 @@ export interface User {
 	auth_data: string | Record<string, unknown> | null;
 	app_access: boolean;
 	admin_access: boolean;
+	user_id: string | null;
 }
 
 export type AuthData = Record<string, any> | null;

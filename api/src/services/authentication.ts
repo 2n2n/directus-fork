@@ -283,6 +283,7 @@ export class AuthenticationService {
 				session_expires: 's.expires',
 				session_next_token: 's.next_token',
 				user_id: 'u.id',
+				user_user_id: 'u.user_id',
 				user_first_name: 'u.first_name',
 				user_last_name: 'u.last_name',
 				user_email: 'u.email',
@@ -353,6 +354,7 @@ export class AuthenticationService {
 				role: record.user_role,
 				app_access: globalAccess.app,
 				admin_access: globalAccess.admin,
+				user_id: record.user_user_id
 			});
 		}
 

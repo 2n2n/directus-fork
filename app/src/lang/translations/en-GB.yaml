@@ -1085,6 +1085,7 @@ fields:
     last_page: Last Page
     last_access: Last Access
     email_notifications: Email Notifications
+    user_id: User Id
   directus_settings:
     jpg: JPEG
     png: PNG

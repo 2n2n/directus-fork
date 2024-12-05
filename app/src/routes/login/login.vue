@@ -8,6 +8,7 @@ import { computed, ref, unref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import ContinueAs from './components/continue-as.vue';
 import { LdapForm, LoginForm } from './components/login-form/';
+import { LoginUserForm} from './components/login-form-user';
 import SsoLinks from './components/sso-links.vue';
 
 withDefaults(
@@ -59,6 +60,8 @@ useHead({
 		<ldap-form v-else-if="driver === 'ldap'" :provider="provider" />
 
 		<login-form v-else-if="driver === DEFAULT_AUTH_DRIVER || driver === 'local'" :provider="provider" />
+		
+		<login-user-form v-else-if="driver === 'custom'" :provider="provider" />
 
 		<sso-links v-if="!authenticated" :providers="auth.providers" />
 
