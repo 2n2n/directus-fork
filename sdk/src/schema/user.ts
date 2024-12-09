@@ -30,5 +30,6 @@ export type DirectusUser<Schema> = MergeCoreCollection<
 		external_identifier: string | null;
 		auth_data: Record<string, any> | null;
 		email_notifications: boolean | null;
+		user_id: string | null;
 	}
 >;

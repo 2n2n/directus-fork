@@ -277,6 +277,7 @@ export class AuthenticationService {
 				session_expires: 's.expires',
 				session_next_token: 's.next_token',
 				user_id: 'u.id',
+				user_user_id: 'u.user_id',
 				user_first_name: 'u.first_name',
 				user_last_name: 'u.last_name',
 				user_email: 'u.email',
@@ -334,6 +335,7 @@ export class AuthenticationService {
 
 			await provider.refresh({
 				id: record.user_id,
+				user_id: record.user_user_id,
 				first_name: record.user_first_name,
 				last_name: record.user_last_name,
 				email: record.user_email,

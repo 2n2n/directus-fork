@@ -5,6 +5,7 @@ import type { AuthDriver } from './auth/auth.js';
 import {
 	LDAPAuthDriver,
 	LocalAuthDriver,
+	LocalUserIdDriver,
 	OAuth2AuthDriver,
 	OpenIDAuthDriver,
 	SAMLAuthDriver,
@@ -82,6 +83,9 @@ function getProviderInstance(
 		case 'local':
 			return new LocalAuthDriver(options, config);
 
+		case 'custom':
+			return new LocalUserIdDriver(options, config);
+			
 		case 'oauth2':
 			return new OAuth2AuthDriver(options, config);
 

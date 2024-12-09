@@ -8,6 +8,7 @@ import { computed, ref, unref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import ContinueAs from './components/continue-as.vue';
 import { LdapForm, LoginForm } from './components/login-form/';
+import { LoginFormCustom } from './components/login-form-custom'
 import SsoLinks from './components/sso-links.vue';
 
 withDefaults(
@@ -60,6 +61,8 @@ useHead({
 
 		<login-form v-else-if="driver === DEFAULT_AUTH_DRIVER || driver === 'local'" :provider="provider" />
 
+		<login-form-custom v-else-if="driver === 'custom'" :provider="provider" />
+		
 		<sso-links v-if="!authenticated" :providers="auth.providers" />
 
 		<div v-if="!authenticated && serverStore.info.project?.public_registration" class="registration-wrapper">

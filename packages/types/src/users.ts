@@ -42,6 +42,7 @@ export type User = {
 	location: string | null;
 	tags: string[] | null;
 	email_notifications: boolean;
+	user_id: string | null;
 };
 
 export type RegisterUserInput = {

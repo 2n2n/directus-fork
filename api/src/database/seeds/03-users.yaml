@@ -61,3 +61,6 @@ columns:
   last_page:
     type: string
     length: 255
+  user_id:
+    type: string
+    length: 255

@@ -9,4 +9,5 @@ export const defaultAdminUser = {
 	status: 'active',
 	first_name: 'Admin',
 	last_name: 'User',
+	user_id: '1',
 };

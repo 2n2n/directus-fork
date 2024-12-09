@@ -105,3 +105,4 @@
     - tfa_secret
     - status
     - role
+    - user_id
